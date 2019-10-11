@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Thu Oct 10 11:29:02 2019
+# Process ID: 20624
+# Current directory: D:/Documenten/UAsem3/DigitaleElektronica/Opdracht1/project_1/project_1.runs/synth_1
+# Command line: vivado.exe -log project_VideoMemory.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source project_VideoMemory.tcl
+# Log file: D:/Documenten/UAsem3/DigitaleElektronica/Opdracht1/project_1/project_1.runs/synth_1/project_VideoMemory.vds
+# Journal file: D:/Documenten/UAsem3/DigitaleElektronica/Opdracht1/project_1/project_1.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source project_VideoMemory.tcl -notrace

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-3" LaunchTime="1570699738">
+  <File Type="BITSTR-BMM" Name="project_VideoMemory_bd.bmm"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="project_VideoMemory_methodology_drc_opted.rpt"/>
+  <File Type="INIT-TIMING" Name="project_VideoMemory_timing_summary_init.rpt"/>
+  <File Type="ROUTE-PWR" Name="project_VideoMemory_power_routed.rpt"/>
+  <File Type="PA-TCL" Name="project_VideoMemory.tcl"/>
+  <File Type="OPT-TIMING" Name="project_VideoMemory_timing_summary_opted.rpt"/>
+  <File Type="OPT-DCP" Name="project_VideoMemory_opt.dcp"/>
+  <File Type="ROUTE-PWR-SUM" Name="project_VideoMemory_power_summary_routed.pb"/>
+  <File Type="REPORTS-TCL" Name="project_VideoMemory_reports.tcl"/>
+  <File Type="OPT-DRC" Name="project_VideoMemory_drc_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="project_VideoMemory.hwdef"/>
+  <File Type="PWROPT-DCP" Name="project_VideoMemory_pwropt.dcp"/>
+  <File Type="PWROPT-DRC" Name="project_VideoMemory_drc_pwropted.rpt"/>
+  <File Type="PWROPT-TIMING" Name="project_VideoMemory_timing_summary_pwropted.rpt"/>
+  <File Type="PLACE-DCP" Name="project_VideoMemory_placed.dcp"/>
+  <File Type="PLACE-IO" Name="project_VideoMemory_io_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="project_VideoMemory_clock_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL" Name="project_VideoMemory_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="project_VideoMemory_utilization_placed.pb"/>
+  <File Type="PLACE-CTRL" Name="project_VideoMemory_control_sets_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="project_VideoMemory_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="project_VideoMemory_incremental_reuse_pre_placed.rpt"/>
+  <File Type="BG-BGN" Name="project_VideoMemory.bgn"/>
+  <File Type="PLACE-TIMING" Name="project_VideoMemory_timing_summary_placed.rpt"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="project_VideoMemory_postplace_pwropt.dcp"/>
+  <File Type="BG-BIN" Name="project_VideoMemory.bin"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="project_VideoMemory_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="PHYSOPT-DCP" Name="project_VideoMemory_physopt.dcp"/>
+  <File Type="PHYSOPT-DRC" Name="project_VideoMemory_drc_physopted.rpt"/>
+  <File Type="BITSTR-MSK" Name="project_VideoMemory.msk"/>
+  <File Type="PHYSOPT-TIMING" Name="project_VideoMemory_timing_summary_physopted.rpt"/>
+  <File Type="ROUTE-ERROR-DCP" Name="project_VideoMemory_routed_error.dcp"/>
+  <File Type="ROUTE-DCP" Name="project_VideoMemory_routed.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="project_VideoMemory_routed_bb.dcp"/>
+  <File Type="ROUTE-DRC" Name="project_VideoMemory_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="project_VideoMemory_drc_routed.pb"/>
+  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
+  <File Type="BITSTR-LTX" Name="project_VideoMemory.ltx"/>
+  <File Type="ROUTE-DRC-RPX" Name="project_VideoMemory_drc_routed.rpx"/>
+  <File Type="BITSTR-MMI" Name="project_VideoMemory.mmi"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="project_VideoMemory_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="project_VideoMemory_methodology_drc_routed.rpx"/>
+  <File Type="BITSTR-SYSDEF" Name="project_VideoMemory.sysdef"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="project_VideoMemory_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-PWR-RPX" Name="project_VideoMemory_power_routed.rpx"/>
+  <File Type="ROUTE-STATUS" Name="project_VideoMemory_route_status.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="project_VideoMemory_route_status.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="project_VideoMemory_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-TIMING-PB" Name="project_VideoMemory_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMING-RPX" Name="project_VideoMemory_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-SIMILARITY" Name="project_VideoMemory_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-CLK" Name="project_VideoMemory_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW" Name="project_VideoMemory_bus_skew_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW-PB" Name="project_VideoMemory_bus_skew_routed.pb"/>
+  <File Type="ROUTE-BUS-SKEW-RPX" Name="project_VideoMemory_bus_skew_routed.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="project_VideoMemory_postroute_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="project_VideoMemory_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="project_VideoMemory_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="project_VideoMemory_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="project_VideoMemory_timing_summary_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="project_VideoMemory_bus_skew_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="project_VideoMemory_bus_skew_postroute_physopted.pb"/>
+  <File Type="BG-BIT" Name="project_VideoMemory.bit"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="project_VideoMemory_bus_skew_postroute_physopted.rpx"/>
+  <File Type="BITSTR-RBT" Name="project_VideoMemory.rbt"/>
+  <File Type="BITSTR-NKY" Name="project_VideoMemory.nky"/>
+  <File Type="BG-DRC" Name="project_VideoMemory.drc"/>
+  <File Type="RDI-RDI" Name="project_VideoMemory.vdi"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PPRDIR/../../../../UAsem2/DigitaleElektronica/Sessie9/Opdracht_VGA/Opdracht_VGA.srcs/sources_1/new/Pixel_Pulser_H.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../../UAsem2/DigitaleElektronica/Sessie9/Opdracht_VGA/Opdracht_VGA.srcs/sources_1/new/Pixel_Pulser_V.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/project_VideoMemory.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/IP/VideoMemory/FPA.coe">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="project_VideoMemory"/>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <File Path="$PPRDIR/../Nexys-4-DDR-Master_VideoMemory.xdc">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TargetConstrsFile" Val="$PPRDIR/../Nexys-4-DDR-Master_VideoMemory.xdc"/>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
+    <Filter Type="Utils"/>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2019"/>
+    <Step Id="init_design"/>
+    <Step Id="opt_design"/>
+    <Step Id="power_opt_design"/>
+    <Step Id="place_design"/>
+    <Step Id="post_place_power_opt_design"/>
+    <Step Id="phys_opt_design"/>
+    <Step Id="route_design"/>
+    <Step Id="post_route_phys_opt_design"/>
+    <Step Id="write_bitstream"/>
+  </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="ClockingWizard"/>
+  <BlockFileSet Type="BlockSrcs" Name="VideoMemory"/>
+</GenRun>
