@@ -20,9 +20,11 @@ end Project_Bresenham;
 
 architecture Behavioral of Project_Bresenham is
 
-signal dx,dy,y,D,x: integer;
+signal dx,dy: integer:=0;
+signal y,x,yi: integer:=0;
+signal D :integer:=0;
 signal Plotting: std_logic:='0';
-signal started: std_logic:='0';
+signal started,low,high: std_logic:='0';
 
 begin
 
@@ -33,18 +35,41 @@ begin
         if (Start= '1' and started = '0') then  --check if Start has been activated
         
             started<='1';             --Tell that start has been activated
-            dx<=x1-x0;                --Give values to dx,dy,D
-            dy<=y1-y0;
-            D<= 2*dy-dx;
-            y<=y0;                    --First values for y0 and x0
-            x<=x0;
-            Plotting<='1';           
-               
-         elsif(started='1' and plotting='1') then
+           
+           if( abs(y1-y0)<abs(x1-x0) )then
+                low<='1';
+                
+                if( x0 > x1) then
+                
+                    
+                   if((y0-y1) <0) then          --if dy<0
+                   
+                        dx<=x0-x1;               
+                        dy<=y1-y0;               --dy=-dy
+                        
+                        yi<=-1;
+                        D<=2*(y1-y0)-(x0-x1);   --D=2*dy -dx but with dy=-dy
+                   else
+                        dx<=x0-x1;              --same as in previous if
+                        dy<=y0-y1;
+                        yi<=1;
+                        
+                   end if;
+                   
+                    D<=2*dy-dx;
+                    y<=y0;
+                    
+                elsif(low='1') then
+                    
+                    if((y0-y1<0 and )then     --(y0-y1)<0 so we know what 
+                        
+                    
+                     end if;
+           
          
          
-          
-            
+                end if;
+            end if;
         end if;
     end if;
 
