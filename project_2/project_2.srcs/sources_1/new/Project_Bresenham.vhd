@@ -21,7 +21,7 @@ end Project_Bresenham;
 architecture Behavioral of Project_Bresenham is
 
 signal dx,dy: integer:=0;
-signal y,x,yi: integer:=0;
+signal y,x,yi,xi: integer:=0;
 signal D :integer:=0;
 signal Plotting: std_logic:='0';
 signal started,low,high: std_logic:='0';
@@ -49,27 +49,77 @@ begin
                         
                         yi<=-1;
                         D<=2*(y1-y0)-(x0-x1);   --D=2*dy -dx but with dy=-dy
-                   else
+                   else                         --when y0-y1 >0
                         dx<=x0-x1;              --same as in previous if
                         dy<=y0-y1;
                         yi<=1;
+                        D<=2*(y0-1)-(x0-x1); 
                         
                    end if;
                    
+                    y<=y0;
+                    
+                else            --If x0> x1 isn't true 
+                                --same as in previous if but x0 y0 and x1 y1 are switched
+                    
+                   if(y1-y0<0) then     --if dy<0
+                    
+                        dx<=x1-x0;
+                        dy<=y0-y1;          --dy=-dy
+                        
+                        yi<=-1;
+                        D<=2*(y0-y1)-(x0-x1);
+                   else                             --when y1-y0>0
+                        dx<=x1-x0;
+                        dy<=y1-y0;
+                        yi<=1;
+                        
+                        end if;
+                    
                     D<=2*dy-dx;
                     y<=y0;
                     
-                elsif(low='1') then
-                    
-                    if((y0-y1<0 and )then     --(y0-y1)<0 so we know what 
-                        
-                    
-                     end if;
-           
-         
-         
-                end if;
+                   end if;
             end if;
+            
+           elsif(y0>y1) then
+                high<='1';
+                
+            if(y0>y1) then
+                
+                if((x0-x1)<0) then
+                
+                    dx<=x1-x0;             -- dx=-dx
+                    dy<=y0-y1;
+                    xi<=-1;
+                    D<=2*(x1-x0)-(y0-y1);
+                    
+                else
+                    dx<=x0-x1;
+                    dy<=y0-y1;
+                    xi<=1;
+                    D<=2*(x0-x1)-(y0-y1);
+                end if;
+                x<=x0;
+                
+            else
+                
+                if(x1-x0)<0 then
+                    dx<=x0-x1;            --dx=-dx
+                    dy<=y1-y0;
+                    xi<=-1;
+                    D<=2*(x0-x1)-(y1-y0);
+                
+                else
+                    dx<=x1-x0;
+                    dy<=y1-y0;
+                    xi<=1;
+                    D<=2*(x1-x0)-(y1-y0);
+                end if;
+                x<=x0;
+                
+                
+           end if;
         end if;
     end if;
 
