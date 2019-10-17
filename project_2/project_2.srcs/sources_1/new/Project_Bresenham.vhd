@@ -20,6 +20,9 @@ end Project_Bresenham;
 
 architecture Behavioral of Project_Bresenham is
 
+type State_type IS (S,L,H);
+    signal State: State_type;
+
 signal dx,dy: integer:=0;
 signal y,x,yi,xi: integer:=0;
 signal D :integer:=0;
@@ -30,14 +33,15 @@ begin
 
 pValues: process(clk)
 begin
+
     if rising_edge(clk) then
     
-        if (Start= '1' and started = '0') then  --check if Start has been activated
+        if (State = S) then  --check if Start has been activated
         
-            started<='1';             --Tell that start has been activated
+            --started<='1';             --Tell that start has been activated
            
-           if( abs(y1-y0)<abs(x1-x0) )then
-                low<='1';
+           if( abs(y1-y0)< abs(x1-x0) )then
+               State <= L;
                 
                 if( x0 > x1) then
                 
@@ -80,10 +84,9 @@ begin
                     y<=y0;
                     
                    end if;
-            end if;
             
-           elsif(y0>y1) then
-                high<='1';
+           else
+                State <= H;
                 
             if(y0>y1) then
                 
@@ -118,7 +121,7 @@ begin
                 end if;
                 x<=x0;
                 
-                
+                end if;
            end if;
         end if;
     end if;
