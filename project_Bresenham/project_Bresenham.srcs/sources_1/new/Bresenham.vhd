@@ -83,16 +83,20 @@ begin
                     
                     e2<= 2*err;
                     
-                    if(e2 >= dy) then
-                        err <= err+sx;
+                    if(e2 > dy) then
+                        err <= err+dy;
                         CurrentX <= CurrentX+sx;
-                    
-                    end if;
-                    
-                    if( e2 <= dx) then
-                        err <= err+ dx;
-                        CurrentY <= CurrentY+sy;
-                    end if;
+                        
+                        if(e2 < dx) then
+                            err <= err + dx +dy;
+                            CurrentY <= CurrentY + sy;
+                        end if;
+                        
+                    elsif (e2 < dx) then
+                     
+                     err <= err + dx +dy;
+                            CurrentY <= CurrentY + sy;
+                        end if;
                     
                     X_out <= CurrentX;
                     Y_out <= CurrentY;
@@ -104,7 +108,6 @@ begin
                     State <= START;                         --Get out of BUSY state
                     
                 end if;
-                
         end case;
     end if;
 end process;
