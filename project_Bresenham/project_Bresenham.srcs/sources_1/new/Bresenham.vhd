@@ -52,7 +52,12 @@ begin
             When START_CON =>                   --Start conditions
             
                 Plot <='0';
-                dx <= abs(TempX1-TempX0);
+                
+                if(TempX1-TempX0)<0 then   --dx=abs(TempX1-TempX0)
+                    dx<=TempX0-TempX1;
+                else
+                    dx <=TempX1-TempX0;
+                end if;
                 
                 if(TempX0>TempX1) then
                     sx <= 1;
@@ -60,7 +65,11 @@ begin
                     sx <= -1;
                 end if;
                 
-                dy <= -abs(TempY1-TempY0);
+                if (TempY1-TempY0)<0 then       --dy=-abs(TempY1-TempY0)
+                    dy <= TempY1-TempY0;
+                else
+                    dy <= (TempY0-TempY1);
+                end if;
                 
                 if(TempY0<TempY1) then
                     sy <= 1;
