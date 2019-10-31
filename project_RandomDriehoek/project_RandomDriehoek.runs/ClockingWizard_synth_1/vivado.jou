@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Thu Oct 31 11:00:02 2019
+# Process ID: 1016
+# Current directory: D:/Documenten/UAsem3/DigitaleElektronica/Digitale_elektronica/project_RandomDriehoek/project_RandomDriehoek.runs/ClockingWizard_synth_1
+# Command line: vivado.exe -log ClockingWizard.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source ClockingWizard.tcl
+# Log file: D:/Documenten/UAsem3/DigitaleElektronica/Digitale_elektronica/project_RandomDriehoek/project_RandomDriehoek.runs/ClockingWizard_synth_1/ClockingWizard.vds
+# Journal file: D:/Documenten/UAsem3/DigitaleElektronica/Digitale_elektronica/project_RandomDriehoek/project_RandomDriehoek.runs/ClockingWizard_synth_1\vivado.jou
+#-----------------------------------------------------------
+source ClockingWizard.tcl -notrace
