@@ -104,29 +104,40 @@ if(rising_edge(pixelClk)) then
 
 end process;
 
-pPrepareFrame: process(dout)
+pPrepareFrame: process(dout,rd_en,Start_in)
  begin
  
     if(rd_en ='1') then
         rd_en <='0';
         Start_in <= '1';
         
-        if(BresenhamCounter =0 ) then
-        x0<= to_integer(signed(dout(58 downto 49)));   
-        x1<= to_integer(signed(dout(48 downto 39)));
-        y0<= to_integer(signed(dout(28 downto 20)));
-        y1<= to_integer(signed(dout(19 downto 10)));
+        if(BresenhamCounter =0 ) then                       --point A to B
+            x0<= to_integer(signed(dout(58 downto 49)));   
+            x1<= to_integer(signed(dout(48 downto 39)));
+            y0<= to_integer(signed(dout(28 downto 20)));
+            y1<= to_integer(signed(dout(19 downto 10)));
         
-        BresenhamCounter <= BresenhamCounter+1; 
+            BresenhamCounter <= BresenhamCounter+1; 
         
-        elsif(BresenhamCounter = 1) then
-        x0<= to_integer(signed(48 downto 39));
-        x1 <= to_integer(signed(38 downto 29));
-        y0 <= to_integer()
+        elsif(BresenhamCounter = 1) then                    --point B to C
+            x0 <= to_integer(signed(dout(48 downto 39)));
+            x1 <= to_integer(signed(dout(38 downto 29)));
+            y0 <= to_integer(signed(dout(19 downto 10)));
+            y1 <= to_integer(signed(dout(10 downto 2)));
+            
+            BresenhamCounter <= BresenhamCounter+1; 
         
+        elsif(BresenhamCounter = 2) then                    --point A to C
+            x0 <= to_integer(signed(dout(58 downto 49)));
+            x1 <= to_integer(signed(dout(38 downto 29)));
+            y0 <= to_integer(signed(dout(28 downto 20)));
+            y1 <= to_integer(signed(dout(10 downto 2)));
+            
+            BresenhamCounter <= 0;
+
     
     end if;
- 
+ end if;
  end process;
 
 

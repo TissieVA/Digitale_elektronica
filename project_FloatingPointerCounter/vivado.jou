@@ -1,0 +1,15 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Thu Nov 21 11:13:22 2019
+# Process ID: 21280
+# Current directory: D:/Documenten/UAsem3/DigitaleElektronica/Digitale_elektronica/project_FloatingPointerCounter
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent9612 D:\Documenten\UAsem3\DigitaleElektronica\Digitale_elektronica\project_FloatingPointerCounter\project_FloatingPointerCounter.xpr
+# Log file: D:/Documenten/UAsem3/DigitaleElektronica/Digitale_elektronica/project_FloatingPointerCounter/vivado.log
+# Journal file: D:/Documenten/UAsem3/DigitaleElektronica/Digitale_elektronica/project_FloatingPointerCounter\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/Documenten/UAsem3/DigitaleElektronica/Digitale_elektronica/project_FloatingPointerCounter/project_FloatingPointerCounter.xpr
+update_compile_order -fileset sources_1
+add_files -fileset constrs_1 -norecurse D:/Documenten/UAsem3/DigitaleElektronica/Digitale_elektronica/project_FloatingPointerCounter/Nexys-4-DDR-Master_FPCounter.xdc
