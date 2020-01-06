@@ -89,7 +89,7 @@ VideoMem : VideoMemory
         clk_pixel => PixelClk,
         Xpos => Xpos,
         Ypos => Ypos,
-        HSync => VGA_HS,                    --Whe get Horizontal and veritcal signal back from Pixel_Pulser_V
+        HSync => VGA_HS,                    --We get Horizontal and veritcal signal back from Pixel_Pulser_V
         VSync => VGA_VS,                    --We give the values of these signals to the outputs with the same name as the xdc file
         Can_Write => Can_Write
 );

@@ -60,26 +60,24 @@ proc step_failed { step } {
   close $ch
 }
 
-set_msg_config -id {Common 17-41} -limit 10000000
 
 start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
   set_param chipscope.maxJobs 3
-  set_param xicom.use_bs_reader 1
   create_project -in_memory -part xc7a100tcsg324-3
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir D:/Documenten/UAsem3/DigitaleElektronica/Opdracht1/project_1/project_1.cache/wt [current_project]
-  set_property parent.project_path D:/Documenten/UAsem3/DigitaleElektronica/Opdracht1/project_1/project_1.xpr [current_project]
-  set_property ip_output_repo D:/Documenten/UAsem3/DigitaleElektronica/Opdracht1/project_1/project_1.cache/ip [current_project]
+  set_property webtalk.parent_dir D:/Documenten/UAsem3/DigitaleElektronica/Digitale_elektronica/project_1/project_1.cache/wt [current_project]
+  set_property parent.project_path D:/Documenten/UAsem3/DigitaleElektronica/Digitale_elektronica/project_1/project_1.xpr [current_project]
+  set_property ip_output_repo D:/Documenten/UAsem3/DigitaleElektronica/Digitale_elektronica/project_1/project_1.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
-  add_files -quiet D:/Documenten/UAsem3/DigitaleElektronica/Opdracht1/project_1/project_1.runs/synth_1/project_VideoMemory.dcp
-  read_ip -quiet D:/Documenten/UAsem3/DigitaleElektronica/Opdracht1/project_1/IP/ClockingWizard/ClockingWizard.xci
-  read_ip -quiet D:/Documenten/UAsem3/DigitaleElektronica/Opdracht1/project_1/IP/VideoMemory/VideoMemory.xci
-  read_xdc D:/Documenten/UAsem3/DigitaleElektronica/Opdracht1/Nexys-4-DDR-Master_VideoMemory.xdc
+  add_files -quiet D:/Documenten/UAsem3/DigitaleElektronica/Digitale_elektronica/project_1/project_1.runs/synth_1/project_VideoMemory.dcp
+  read_ip -quiet D:/Documenten/UAsem3/DigitaleElektronica/Digitale_elektronica/project_1/IP/ClockingWizard/ClockingWizard.xci
+  read_ip -quiet D:/Documenten/UAsem3/DigitaleElektronica/Digitale_elektronica/project_1/IP/VideoMemory/VideoMemory.xci
+  read_xdc D:/Documenten/UAsem3/DigitaleElektronica/Digitale_elektronica/Nexys-4-DDR-Master_VideoMemory.xdc
   link_design -top project_VideoMemory -part xc7a100tcsg324-3
   close_msg_db -file init_design.pb
 } RESULT]

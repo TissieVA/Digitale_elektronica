@@ -17,127 +17,142 @@ use work.driehoek.ALL;
 
 entity project_Driehoeken is
     Port(
-        CLK100MHZ: in std_logic
+        CLK100MHZ: in std_logic;                        --Clock from xdc file
+        VGA_B : out std_logic_vector(3 downto 0);       --Blue color
+        VGA_G : out std_logic_vector (3 downto 0);      --Green color  
+        VGA_R : out std_logic_vector (3 downto 0);      --Red color
+        VGA_HS : out std_logic;                         --Horizontal
+        VGA_VS : out std_logic
     );
 
 end project_Driehoeken;
 
 architecture Behavioral of project_Driehoeken is
 
-signal color: std_logic:='0';
-signal full, wr_en, rd_en: std_logic:='0';
-signal empty: std_logic:='1';
-signal sequence: std_logic_vector(15 downto 0);
-signal din, dout: std_logic_vector(58 downto 0);
 signal pixelClk: std_logic;
-signal FifoInCounter, BresenhamCounter: integer:=0;
-signal x0, x1, y0, y1, x_out, y_out: integer;
-signal Start_in, Plot: std_logic;
+signal wea0,wea1 : STD_LOGIC_VECTOR(0 DOWNTO 0);
+signal addra0,addra1 : STD_LOGIC_VECTOR(18 DOWNTO 0);
+signal dina0, dina1 : STD_LOGIC_VECTOR(2 DOWNTO 0);
+signal addrb0, addrb1 : STD_LOGIC_VECTOR(18 DOWNTO 0);
+signal doutb0, doutb1 : STD_LOGIC_VECTOR(2 DOWNTO 0);
+signal Xpos, Ypos: integer;
+signal Can_Write, wena0, wena1: std_logic;
 
+signal WriteInVidmem0: STD_LOGIC;
+signal WriteInVidmem1: STD_LOGIC;
 
 begin
 
-
-        
-
-Fifo : TriangleFifo
-
-    Port map (
-    clk => pixelclk,
-    srst => '0',
-    din => din,
-    wr_en => wr_en,
-    rd_en => rd_en,
-    dout => dout,
-    full => full,
-    empty => empty
-    );
-    
-pmLFSR : LFSR
+pmTrianglePrep: TrianglePrep
     port map(
-        sequence_out => sequence,
-        clk => pixelclk
+    CLK100MHZ => CLK100MHZ,
+    wea0 => wea0,
+    wea1 => wea1,
+    addra1 => addra1,
+    addra0 => addra0,
+    dina0 => dina0,
+    dina1 => dina1,
+    writeinvidmem0 => writeinvidmem0,
+    writeinvidmem1 => writeinvidmem1,
+    wena0 => wena0,
+    wena1 => wena1
     );
 
-pmBresenham : Bresenham
-    Port Map (
-        x0 => x0,
-        x1 => x1,
-        y0 => y0,
-        y1 => y1,
-        start_in => start_in,
-        Clk => pixelclk,
-        X_out =>x_out,
-        Y_out => y_out,
-        Plot => Plot
+pmClockingWizard : ClockingWizard
+   port map ( 
+        PixelClk => PixelClk,
+        Clk100MHz => Clk100MHz
+ );
+
+pmVideoMem0: VideoMemory
+    Port map(
+    clka => clk100mhz, 
+    wea =>wea0,
+    addra =>addra0,
+    dina =>dina0,
+    douta => open,
+    clkb =>pixelclk,
+    web =>"0",
+    addrb =>"0000000000000000000",
+    dinb =>"000",
+    doutb => doutb0
+    );
+
+pmVideoMem1: VideoMemory
+    Port map(
+    clka => clk100mhz, 
+    wea =>wea1,
+    addra =>addra1,
+    dina =>dina1,
+    douta =>open,
+    clkb =>pixelclk,
+    web =>"0",
+    addrb =>"0000000000000000000",
+    dinb =>"000",
+    doutb => doutb1
+    );
+
     
+pmPixelPulserV: Pixel_Pulser_V
+    port map(
+            clk_pixel => pixelclk,
+            Xpos   => Xpos,           
+            Ypos => Ypos,
+            HSync => VGA_HS,
+            Vsync => VGA_VS,
+            Can_Write => Can_Write
     );
     
 
-
-
-pFifo: process(pixelClk,FifoInCounter)
+    
+p_Display: process(Can_Write,doutb1,WriteInVidmem0,WriteInVidmem1) is 
 begin
-
-
-if(rising_edge(pixelClk)) then
-    
-    if(FifoInCounter=0) then
-    
-        din(58 downto 43) <= sequence;
+        VGA_R<= "1111";
+        VGA_B <= "0000";
+        VGA_G <= "0000";
+    if Can_Write='1' then 
+        if WriteInVidmem0='0' then          --amg enkel als niet in vidmem wordt gegschreven
+            if (doutb0(0 downto 0)="1") then 
+                VGA_B<="1111";
+            else 
+                VGA_B<="0000";
+            end if;
+            
+            if (doutb0(1 downto 1)="1") then 
+                VGA_G<="1111";
+            else 
+                VGA_G<="0000";
+            end if;
+            
+            if (doutb0(2 downto 2)="1") then 
+                VGA_R<="1111";
+            else 
+                VGA_R<="0000";
+            end if;
+        elsif WriteInVidmem1='0' then
+            if (doutb1(0 downto 0)="1") then 
+                VGA_B<="1111";
+            else 
+                VGA_B<="0000";
+            end if;
+            
+            if (doutb1(1 downto 1)="1") then 
+                VGA_G<="1111";
+            else 
+                VGA_G<="0000";
+            end if;
+            
+            if (doutb1(2 downto 2)="1") then 
+                VGA_R<="1111";
+            else 
+                VGA_R<="0000";
+            end if;
+        
+        end if;
+   
+    end if;
      
-     elsif (FifoInCounter = 1) then
-        din(42 downto 27) <= sequence;
-        
-    elsif (FifoInCounter=2) then
-        din(26 downto 11) <= sequence;
-        
-    elsif (FifoInCounter=3) then
-        din(10 downto 2) <= sequence(16 downto 9);
-        FifoInCounter <=0;
-        rd_en <= '1';
-    
-    end if;
-   end if;
-
-end process;
-
-pPrepareFrame: process(dout,rd_en,Start_in)
- begin
- 
-    if(rd_en ='1') then
-        rd_en <='0';
-        Start_in <= '1';
-        
-        if(BresenhamCounter =0 ) then                       --point A to B
-            x0<= to_integer(signed(dout(58 downto 49)));   
-            x1<= to_integer(signed(dout(48 downto 39)));
-            y0<= to_integer(signed(dout(28 downto 20)));
-            y1<= to_integer(signed(dout(19 downto 10)));
-        
-            BresenhamCounter <= BresenhamCounter+1; 
-        
-        elsif(BresenhamCounter = 1) then                    --point B to C
-            x0 <= to_integer(signed(dout(48 downto 39)));
-            x1 <= to_integer(signed(dout(38 downto 29)));
-            y0 <= to_integer(signed(dout(19 downto 10)));
-            y1 <= to_integer(signed(dout(10 downto 2)));
-            
-            BresenhamCounter <= BresenhamCounter+1; 
-        
-        elsif(BresenhamCounter = 2) then                    --point A to C
-            x0 <= to_integer(signed(dout(58 downto 49)));
-            x1 <= to_integer(signed(dout(38 downto 29)));
-            y0 <= to_integer(signed(dout(28 downto 20)));
-            y1 <= to_integer(signed(dout(10 downto 2)));
-            
-            BresenhamCounter <= 0;
-
-    
-    end if;
- end if;
- end process;
-
+end process p_Display;
 
 
 end Behavioral;

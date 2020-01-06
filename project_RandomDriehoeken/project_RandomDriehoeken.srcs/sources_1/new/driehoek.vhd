@@ -4,6 +4,31 @@ use IEEE.NUMERIC_STD.ALL;
 
 package driehoek is
 
+component TriaglePrep
+    Port(
+    
+    CLK100MHZ: in std_logic;
+    wea0: out std_logic_vector(0 downto 0);
+    wea1: out std_logic_vector(0 downto 0);
+    addra0 : out std_logic_vector(18 downto 0);
+    addra1 : out std_logic_vector(18 downto 0);
+    dina0: out std_logic_vector(2 downto 0);
+    dina1: out std_logic_vector(2 downto 0);
+    WriteInVidMem0: out std_logic;
+    WriteInVidMem1: out std_logic;
+    wena0: in std_logic;
+    wena1: in std_logic
+    );
+end component;
+
+component ClockingWizard
+port
+ (
+  PixelClk          : out    std_logic;
+  Clk100MHz           : in     std_logic
+ );
+end component;
+
 Component LFSR_ext 
     Port(
     sequence_out: out std_logic_vector(56 downto 0);
@@ -31,18 +56,11 @@ component Pixel_Pulser_V
         Xpos: out integer;
         Ypos: out integer;
         HSync: out std_logic;
+        Vsync: out std_logic;
         Can_Write: out std_logic
         );
 end component;
 
-component ClockingWizard
-port
- (-- Clock in ports
-  -- Clock out ports
-  PixelClk          : out    std_logic;
-  Clk100MHz           : in     std_logic
- );
-end component;
 
 COMPONENT TriangleFifo
   PORT (
@@ -71,5 +89,23 @@ COMPONENT VideoMemory
     doutb : OUT STD_LOGIC_VECTOR(2 DOWNTO 0)
   );
 END COMPONENT;
+
+COMPONENT trianglePrep
+    Port (
+    CLK100MHZ: in std_logic;
+    
+    wea0: out std_logic_vector(0 downto 0);
+    wea1: out std_logic_vector(0 downto 0);
+    addra0 : out std_logic_vector(18 downto 0);
+    addra1 : out std_logic_vector(18 downto 0);
+    dina0: out std_logic_vector(2 downto 0);
+    dina1: out std_logic_vector(2 downto 0);
+    wena0: in std_logic;
+    wena1: in std_logic;
+    WriteInVidMem0: out std_logic;
+    WriteInVidMem1: out std_logic
+
+   );
+ END COMPONENT;
 
 end package;

@@ -17,35 +17,32 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param chipscope.maxJobs 3
-set_param xicom.use_bs_reader 1
-set_msg_config -id {Common 17-41} -limit 10000000
 create_project -in_memory -part xc7a100tcsg324-3
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir D:/Documenten/UAsem3/DigitaleElektronica/Opdracht1/project_1/project_1.cache/wt [current_project]
-set_property parent.project_path D:/Documenten/UAsem3/DigitaleElektronica/Opdracht1/project_1/project_1.xpr [current_project]
+set_property webtalk.parent_dir D:/Documenten/UAsem3/DigitaleElektronica/Digitale_elektronica/project_1/project_1.cache/wt [current_project]
+set_property parent.project_path D:/Documenten/UAsem3/DigitaleElektronica/Digitale_elektronica/project_1/project_1.xpr [current_project]
 set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
-set_property ip_output_repo d:/Documenten/UAsem3/DigitaleElektronica/Opdracht1/project_1/project_1.cache/ip [current_project]
+set_property ip_output_repo d:/Documenten/UAsem3/DigitaleElektronica/Digitale_elektronica/project_1/project_1.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-add_files D:/Documenten/UAsem3/DigitaleElektronica/Opdracht1/project_1/IP/VideoMemory/FPA.coe
+add_files D:/Documenten/UAsem3/DigitaleElektronica/Digitale_elektronica/project_1/IP/VideoMemory/FPA.coe
 read_vhdl -library xil_defaultlib {
-  D:/Documenten/UAsem2/DigitaleElektronica/Sessie9/Opdracht_VGA/Opdracht_VGA.srcs/sources_1/new/Pixel_Pulser_H.vhd
-  D:/Documenten/UAsem2/DigitaleElektronica/Sessie9/Opdracht_VGA/Opdracht_VGA.srcs/sources_1/new/Pixel_Pulser_V.vhd
-  D:/Documenten/UAsem3/DigitaleElektronica/Opdracht1/project_1/project_1.srcs/sources_1/new/project_VideoMemory.vhd
+  D:/Documenten/UAsem2/DigitaleElektronica/DigitaleElektronica-sem1-2/5-Redscreen/Opdracht_VGA/Opdracht_VGA.srcs/sources_1/new/Pixel_Pulser_H.vhd
+  D:/Documenten/UAsem2/DigitaleElektronica/DigitaleElektronica-sem1-2/5-Redscreen/Opdracht_VGA/Opdracht_VGA.srcs/sources_1/new/Pixel_Pulser_V.vhd
+  D:/Documenten/UAsem3/DigitaleElektronica/Digitale_elektronica/project_1/project_1.srcs/sources_1/new/project_VideoMemory.vhd
 }
-read_ip -quiet D:/Documenten/UAsem3/DigitaleElektronica/Opdracht1/project_1/IP/ClockingWizard/ClockingWizard.xci
-set_property used_in_implementation false [get_files -all d:/Documenten/UAsem3/DigitaleElektronica/Opdracht1/project_1/IP/ClockingWizard/ClockingWizard_board.xdc]
-set_property used_in_implementation false [get_files -all d:/Documenten/UAsem3/DigitaleElektronica/Opdracht1/project_1/IP/ClockingWizard/ClockingWizard.xdc]
-set_property used_in_implementation false [get_files -all d:/Documenten/UAsem3/DigitaleElektronica/Opdracht1/project_1/IP/ClockingWizard/ClockingWizard_ooc.xdc]
+read_ip -quiet D:/Documenten/UAsem3/DigitaleElektronica/Digitale_elektronica/project_1/IP/ClockingWizard/ClockingWizard.xci
+set_property used_in_implementation false [get_files -all d:/Documenten/UAsem3/DigitaleElektronica/Digitale_elektronica/project_1/IP/ClockingWizard/ClockingWizard_board.xdc]
+set_property used_in_implementation false [get_files -all d:/Documenten/UAsem3/DigitaleElektronica/Digitale_elektronica/project_1/IP/ClockingWizard/ClockingWizard.xdc]
+set_property used_in_implementation false [get_files -all d:/Documenten/UAsem3/DigitaleElektronica/Digitale_elektronica/project_1/IP/ClockingWizard/ClockingWizard_ooc.xdc]
 
-read_ip -quiet D:/Documenten/UAsem3/DigitaleElektronica/Opdracht1/project_1/IP/VideoMemory/VideoMemory.xci
-set_property used_in_implementation false [get_files -all d:/Documenten/UAsem3/DigitaleElektronica/Opdracht1/project_1/IP/VideoMemory/VideoMemory_ooc.xdc]
+read_ip -quiet D:/Documenten/UAsem3/DigitaleElektronica/Digitale_elektronica/project_1/IP/VideoMemory/VideoMemory.xci
+set_property used_in_implementation false [get_files -all d:/Documenten/UAsem3/DigitaleElektronica/Digitale_elektronica/project_1/IP/VideoMemory/VideoMemory_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -55,8 +52,8 @@ set_property used_in_implementation false [get_files -all d:/Documenten/UAsem3/D
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc D:/Documenten/UAsem3/DigitaleElektronica/Opdracht1/Nexys-4-DDR-Master_VideoMemory.xdc
-set_property used_in_implementation false [get_files D:/Documenten/UAsem3/DigitaleElektronica/Opdracht1/Nexys-4-DDR-Master_VideoMemory.xdc]
+read_xdc D:/Documenten/UAsem3/DigitaleElektronica/Digitale_elektronica/Nexys-4-DDR-Master_VideoMemory.xdc
+set_property used_in_implementation false [get_files D:/Documenten/UAsem3/DigitaleElektronica/Digitale_elektronica/Nexys-4-DDR-Master_VideoMemory.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]
